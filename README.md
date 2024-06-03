@@ -12,8 +12,8 @@
 # Solver for Turing Machine (Board Game)
 
 This is a solver for the board game: Turing Machine. 
-For personal usage, the codes are relatively simple in logic. 
-Some questions are missing but filling in is quite easy.
+
+For personal usage, the codes are relatively simple in logic. Some validators are missing but the filling is quite easy.
 
 ## :rocket: Usage
 
