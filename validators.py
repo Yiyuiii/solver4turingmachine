@@ -102,6 +102,21 @@ class Q6(Question):
             groups[1].append(x)
         return groups
 
+class Q7(Question):
+    '''
+    紫奇偶
+    '''
+    def __init__(self):
+        super().__init__()
+        self.n_groups = 2
+
+    def single_forward(self, x, groups=None):
+        if x[2] % 2 == 0:
+            groups[0].append(x)
+        else:
+            groups[1].append(x)
+        return groups
+
 class Q8(Question):
     '''
     密码中1的个数
@@ -401,15 +416,13 @@ class Q26(Question):
     '''
     def __init__(self):
         super().__init__()
-        self.n_groups = 3
+        self.n_paras = 3
+        self.n_groups = 1
 
     def single_forward(self, x, groups=None):
-        if x[0] < 3:
-            groups[0].append(x)
-        if x[1] < 3:
-            groups[1].append(x)
-        if x[2] < 3:
-            groups[2].append(x)
+        for para in range(self.n_paras):
+            if x[para] < 3:
+                groups[para].append(x)
         return groups
 
 class Q27(Question):
@@ -418,15 +431,13 @@ class Q27(Question):
     '''
     def __init__(self):
         super().__init__()
-        self.n_groups = 3
+        self.n_paras = 3
+        self.n_groups = 1
 
     def single_forward(self, x, groups=None):
-        if x[0] < 4:
-            groups[0].append(x)
-        if x[1] < 4:
-            groups[1].append(x)
-        if x[2] < 4:
-            groups[2].append(x)
+        for para in range(self.n_paras):
+            if x[para] < 4:
+                groups[para].append(x)
         return groups
 
 class Q28(Question):
@@ -435,15 +446,13 @@ class Q28(Question):
     '''
     def __init__(self):
         super().__init__()
-        self.n_groups = 3
+        self.n_paras = 3
+        self.n_groups = 1
 
     def single_forward(self, x, groups=None):
-        if x[0]==1:
-            groups[0].append(x)
-        if x[1]==1:
-            groups[1].append(x)
-        if x[2]==1:
-            groups[2].append(x)
+        for para in range(self.n_paras):
+            if x[para] == 1:
+                groups[para].append(x)
         return groups
 
 class Q29(Question):
@@ -452,15 +461,13 @@ class Q29(Question):
     '''
     def __init__(self):
         super().__init__()
-        self.n_groups = 3
+        self.n_paras = 3
+        self.n_groups = 1
 
     def single_forward(self, x, groups=None):
-        if x[0]==3:
-            groups[0].append(x)
-        if x[1]==3:
-            groups[1].append(x)
-        if x[2]==3:
-            groups[2].append(x)
+        for para in range(self.n_paras):
+            if x[para] == 3:
+                groups[para].append(x)
         return groups
 
 class Q30(Question):
@@ -469,15 +476,13 @@ class Q30(Question):
     '''
     def __init__(self):
         super().__init__()
-        self.n_groups = 3
+        self.n_paras = 3
+        self.n_groups = 1
 
     def single_forward(self, x, groups=None):
-        if x[0]==4:
-            groups[0].append(x)
-        if x[1]==4:
-            groups[1].append(x)
-        if x[2]==4:
-            groups[2].append(x)
+        for para in range(self.n_paras):
+            if x[para]==4:
+                groups[para].append(x)
         return groups
 
 class Q32(Question):
@@ -486,15 +491,13 @@ class Q32(Question):
     '''
     def __init__(self):
         super().__init__()
-        self.n_groups = 3
+        self.n_paras = 3
+        self.n_groups = 1
 
     def single_forward(self, x, groups=None):
-        if x[0]>3:
-            groups[0].append(x)
-        if x[1]>3:
-            groups[1].append(x)
-        if x[2]>3:
-            groups[2].append(x)
+        for para in range(self.n_paras):
+            if x[para]>3:
+                groups[para].append(x)
         return groups
 
 class Q33(Question):

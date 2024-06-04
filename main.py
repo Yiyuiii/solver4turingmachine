@@ -96,7 +96,7 @@ def get_query(qs, answers):
     return best_x, best_q, best_score, best_group
 
 if __name__ == '__main__':
-    Qs = [Q4(), Q10(), Q13(), Q19()]
+    Qs = [Q7(), Q19(), Q24(), Q32(), Q36(), Q45()]
     answers = get_answers(Qs)
     print(f'candidates: {answers}')
 
