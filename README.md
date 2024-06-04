@@ -29,7 +29,7 @@ Manually adjust codes in main.py, especially `Qs = [xx]` and `answers = [xx]`.
 **Outputs:** 
 `answers = get_answers(Qs)` gives out the possible answers under Qs, 
 `get_query(Qs, answers)` gives out the best query number, 
-the expectation of success probability after 3 questions (i.e. score), 
+the expectation of success probability after 3 questions, 
 the questions to be asked in various situations, 
 and the possible answers left after 3 questions.
 

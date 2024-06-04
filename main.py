@@ -60,18 +60,19 @@ def get_query(qs, answers):
                     else:
                         group[0].append(a)
                         group[1].append(a)
-                score = 0
+                score = list()
                 for i in range(2):
                     cnt = len(group[i])
                     if cnt != 0:
-                        score += 0.5 / cnt
+                        score.append(1 / cnt)
+                score = sum(score) / len(score) if score else 0
                 if score > x_best_score:
-                    x_best_score = score
                     x_best_q = q
                     x_best_group = group
+                    x_best_score = score
             return x_best_score, x_best_q, x_best_group
 
-        x_best_score = 0
+        x_best_score = list()
         x_best_q = list()
         x_best_group = list()
         _, best_q_, x_best_group_1 = search_best_q(answers)
@@ -83,8 +84,9 @@ def get_query(qs, answers):
                 best_score_, best_q_, x_best_group_5 = search_best_q(x_best_group_4)
                 x_best_q.append(best_q_)
                 x_best_group.extend(x_best_group_5)
-                x_best_score += best_score_
-        x_best_score /= 4
+                if best_score_:
+                    x_best_score.append(best_score_)
+        x_best_score = sum(x_best_score) / len(x_best_score)
 
         if x_best_score > best_score:
             best_score = x_best_score
@@ -94,13 +96,29 @@ def get_query(qs, answers):
     return best_x, best_q, best_score, best_group
 
 if __name__ == '__main__':
-    Qs = [Q18(), Q20(), Q27(), Q32(), Q33(), Q44()]
+    Qs = [Q4(), Q10(), Q13(), Q19()]
     answers = get_answers(Qs)
-    print(answers)
+    print(f'candidates: {answers}')
 
     # answers = [(2, 4, 2), (5, 5, 2)]
     best_x, best_q, best_score, best_group = get_query(Qs, answers)
-    print(f'best query: {best_x}. score: {best_score:.2f}')
-    print(best_q[0], 'x', best_q[1], 'xx', best_q[2], 'xo', best_q[3], 'o', best_q[4], 'ox', best_q[5], 'oo', best_q[6])
-    print('xxx', best_group[0], 'xxo', best_group[1], 'xox', best_group[2], 'xoo', best_group[3], 'oxx', best_group[4], 'oxo', best_group[5], 'oox', best_group[6], 'ooo', best_group[7],)
+    print(f'best query: {best_x}')
+    print(f'success rate: {best_score * 100:.0f}%')
+    print('best questions:',
+          best_q[0].__class__.__name__,
+          '| x', best_q[1].__class__.__name__,
+          '| xx', best_q[2].__class__.__name__,
+          '| xo', best_q[3].__class__.__name__,
+          '| o', best_q[4].__class__.__name__,
+          '| ox', best_q[5].__class__.__name__,
+          '| oo', best_q[6].__class__.__name__)
+    print('next candidates:',
+          'xxx', best_group[0],
+          'xxo', best_group[1],
+          'xox', best_group[2],
+          'xoo', best_group[3],
+          'oxx', best_group[4],
+          'oxo', best_group[5],
+          'oox', best_group[6],
+          'ooo', best_group[7],)
 
